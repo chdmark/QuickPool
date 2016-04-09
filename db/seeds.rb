@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+5.times do
+  User.create(email: Faker::Internet.email, password_digest: Faker::Internet.password, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: Faker::PhoneNumber.cell_phone)
+end
+
+5.times do
+  Trip.create(rider_id: rand(1..5), driver_id: rand(1..5), origin_loc: [12345,54321], destination_loc: [65443,23450])
+end
+
+5.times do
+  Request.create(user_id: rand(1..5), driver?: [true, false].sample, origin_loc: [12345,54321], destination_loc: [43224,10394])
+end
