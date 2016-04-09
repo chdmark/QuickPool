@@ -1,0 +1,8 @@
+<h2>Submit a Carpool Request</h2>
+
+<%= form_for :request, url: '/request' do |f| %>
+  From Where? <%= f.text_field :origin_loc %>
+  To Where? <%= f.text_field :destination_loc %>
+  Are you Driving? <%= f.select :driver, [["Yes", true], ["No", false]] %>
+  <%= f.submit "Submit" %>
+<% end %>
