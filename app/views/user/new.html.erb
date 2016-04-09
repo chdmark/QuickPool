@@ -1,10 +1,17 @@
-New user page
+<div class="container">
 
-<%= form_for :user, url: '/user' do |f|%>
+<%= form_for :user, html:{class: 'form-group'}, url: '/user' do |f|%>
   First Name: <%= f.text_field :first_name %>
+  <br>
   Last Name: <%= f.text_field :last_name %>
+  <br>
   Email: <%= f.text_field :email %>
+  <br>
   Password: <%= f.password_field :password %>
+  <br>
   Phone Number: <%= f.text_field :phone_number %>
+  <br>
   <%= f.submit 'Submit' %>
 <% end %>
+
+</div>
