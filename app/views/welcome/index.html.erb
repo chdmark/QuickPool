@@ -1,10 +1,10 @@
 <div class="container">
     <h2>Log In</h2>
-    <%= form_tag "/login" do %>
+    <%= bootstrap_form_tag url: "/login" do |f|%>
 
-      Email: <%= text_field_tag :email %>
-      Password: <%= password_field_tag :password %>
-      <%= submit_tag("Login") %>
+      <%= f.email_field :email %>
+      <%= f.password_field :password %>
+      <%= f.submit "Submit" %>
 
     <% end %>
 
