@@ -24,7 +24,6 @@ class UserController < ApplicationController
   def show
     if current_user
       @user = User.find(current_user.id)
-      redirect_to user_path(current_user.id)
     else
       redirect_to root_path
     end

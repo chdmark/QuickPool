@@ -1,1 +1,13 @@
 edit user page
+
+<%= form_for :user, method: :put, url: user_path(current_user.id) do |f| %>
+  First Name: <%= f.text_field :first_name %>
+  Last Name: <%= f.text_field :last_name %>
+  Email: <%= f.text_field :email %>
+  Password: <%= f.password_field :password %>
+  Phone Number: <%= f.text_field :phone_number %>
+  <%= f.submit 'Submit' %>
+<% end %>
+
+<%= link_to 'Cancel', user_path(current_user.id) %>
+
