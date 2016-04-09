@@ -17,13 +17,22 @@ ActiveRecord::Schema.define(version: 20160409175516) do
   enable_extension "plpgsql"
 
   create_table "requests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",                         null: false
+    t.boolean  "match?",          default: false
+    t.boolean  "driver?",                         null: false
+    t.float    "origin_loc",      default: [],                 array: true
+    t.float    "destination_loc", default: [],                 array: true
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "trips", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "rider_id",                     null: false
+    t.integer  "driver_id",                    null: false
+    t.float    "origin_loc",      default: [],              array: true
+    t.float    "destination_loc", default: [],              array: true
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|
