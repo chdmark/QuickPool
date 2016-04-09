@@ -17,5 +17,5 @@ end
 end
 
 5.times do
-  Request.create(user_id: rand(1..5), driver?: [true, false].sample, origin_loc: [12345,54321], destination_loc: [43224,10394])
+  Request.create(user_id: rand(1..5), driver: [true, false].sample, origin_loc: [12345,54321], destination_loc: [43224,10394])
 end
