@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :request
   resources :trip
   # resources :session, only: [:create, :destroy]
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  get '/logout' => 'session#destroy'
 
 
 
