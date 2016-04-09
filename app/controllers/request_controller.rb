@@ -1,5 +1,7 @@
 class RequestController < ApplicationController
 
+  include Geokit::Geocoders
+
   def index
     @requests = Request.all
   end
@@ -14,6 +16,7 @@ class RequestController < ApplicationController
 
   def create
     @request = current_user.requests.new(request_params)
+
     if @request.save
       redirect_to request_path(@request.id)
     else
