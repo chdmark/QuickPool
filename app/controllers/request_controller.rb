@@ -13,7 +13,13 @@ class RequestController < ApplicationController
   end
 
   def create
-    @request = Request.new
+    @request = current_user.requests.new(request_params)
+    if @request.save
+      redirect_to request_path(@request.id)
+    else
+      flash[:error] = "Failed to create"
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def edit
@@ -40,11 +46,10 @@ class RequestController < ApplicationController
 
   def request_params
     params.require(:request).permit(
-      :match?,
-      :driver?,
+      :match,
       :origin_loc,
+      :driver,
       :destination_loc
-      :user_id
       )
   end
 
