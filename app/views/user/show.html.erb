@@ -1,4 +1,6 @@
 
+<%= link_to 'Edit', edit_user_path %>
+
 <div class='container'>
   <div class='well'>
   User ID: <%= @user.id %>
@@ -34,9 +36,25 @@
 <div class='container'>
   <div class='well'>
 
+  <table class='table'>
+    <% if @requests.count >= 1 %>
+      <tr>
+          <td>Origin</td>
+          <td>Destination</td>
+          <td>Driver</td>
+      </tr>
+      <% @requests.each do |request| %>
+        <td><%=request.origin_loc%></td>
+        <td><%=request.destination_loc%></td>
+        <td><%=request.driver ? "Yes" : "No"%></td>
+      <% end %>
+    <% else %>
+      <h4>No requests found</h4>
+    <% end %>
+
+
   </div>
 </div>
 
 
-<%= link_to 'Edit', edit_user_path %>
-<%= link_to 'Request Driver or Passenger', new_request_path %>
+
