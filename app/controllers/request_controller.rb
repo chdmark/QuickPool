@@ -18,7 +18,11 @@ class RequestController < ApplicationController
     @request = current_user.requests.new(request_params)
 
     if @request.save
-      redirect_to request_path(@request.id)
+      if @request.check_for_matches
+        redirect_to trip_path(Trip.last)
+      else
+        redirect_to request_path(@request.id)
+      end
     else
       flash[:error] = "Failed to create"
       redirect_to user_path(current_user.id)
