@@ -21,7 +21,7 @@ class RequestController < ApplicationController
       if @request.check_for_matches
         redirect_to trip_path(Trip.last)
       else
-        redirect_to request_path(@request.id)
+        redirect_to user_path(current_user.id)
       end
     else
       flash[:error] = "Failed to create"
