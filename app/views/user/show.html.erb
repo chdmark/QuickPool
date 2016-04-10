@@ -18,12 +18,14 @@
           <td>Rider</td>
           <td>Pickup Location</td>
           <td>Final Destination</td>
+          <td>Directions</td>
         </tr>
         <% @trips.each do |trip| %>
           <td><%=trip.driver.first_name + " " + trip.driver.last_name%></td>
           <td><%=trip.rider.first_name + " " + trip.rider.last_name%></td>
           <td><%=trip.rider_origin_loc%></td>
           <td><%=trip.destination_loc%></td>
+          <td><a href="https://www.google.com/maps/dir/<%= trip.address2google %>">Map</a></td>
         <% end %>
       <% else %>
         <h4>No trips found</h4>
