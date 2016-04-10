@@ -4,8 +4,8 @@ class CreateRequests < ActiveRecord::Migration
       t.integer :user_id, null: false
       t.boolean :match, default: false
       t.boolean :driver, null: false
-      t.float :origin_loc, array: true, default: []
-      t.float :destination_loc, array: true, default: []
+      t.string :origin_loc, null: false
+      t.string :destination_loc, null: false
 
       t.timestamps null: false
     end

@@ -20,19 +20,20 @@ ActiveRecord::Schema.define(version: 20160409175516) do
     t.integer  "user_id",                         null: false
     t.boolean  "match",           default: false
     t.boolean  "driver",                          null: false
-    t.float    "origin_loc",      default: [],                 array: true
-    t.float    "destination_loc", default: [],                 array: true
+    t.string   "origin_loc",                      null: false
+    t.string   "destination_loc",                 null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
 
   create_table "trips", force: :cascade do |t|
-    t.integer  "rider_id",                     null: false
-    t.integer  "driver_id",                    null: false
-    t.float    "origin_loc",      default: [],              array: true
-    t.float    "destination_loc", default: [],              array: true
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "rider_id",          null: false
+    t.integer  "driver_id",         null: false
+    t.string   "driver_origin_loc", null: false
+    t.string   "rider_origin_loc",  null: false
+    t.string   "destination_loc",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|

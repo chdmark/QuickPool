@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+destinations = ["255 Molimo Drive", "633 Folsom Street", "13 Madrone Ave", "377 South Van Ness Ave"]
+origins = ["334 Sanchez Street", "420 Mason Street", "2051 Scott Street"]
+
 User.create(email: 'admin', first_name: 'admin', last_name: 'admin', password_digest: '1234', phone_number: '12345')
 
 5.times do
@@ -13,9 +16,9 @@ User.create(email: 'admin', first_name: 'admin', last_name: 'admin', password_di
 end
 
 5.times do
-  Trip.create(rider_id: rand(1..5), driver_id: rand(1..5), origin_loc: [12345,54321], destination_loc: [65443,23450])
+  Trip.create(rider_id: rand(1..5), driver_id: rand(1..5), rider_origin_loc: origins.sample, driver_origin_loc: origins.sample, destination_loc: destinations.sample)
 end
 
 5.times do
-  Request.create(user_id: rand(1..5), driver: [true, false].sample, origin_loc: [12345,54321], destination_loc: [43224,10394])
+  Request.create(user_id: rand(1..5), driver: [true, false].sample, origin_loc: origins.sample, destination_loc: destinations.sample)
 end
