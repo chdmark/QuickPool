@@ -24,11 +24,12 @@
         </tr>
 
         <% @trips.each do |trip| %>
-
-          <td><%=trip.driver.first_name + " " + trip.driver.last_name%></td>
-          <td><%=trip.rider.first_name + " " + trip.rider.last_name%></td>
-          <td><%=trip.rider_origin_loc%></td>
-          <td><%=trip.destination_loc%></td>
+          <tr>
+            <td><%=trip.driver.first_name + " " + trip.driver.last_name%></td>
+            <td><%=trip.rider.first_name + " " + trip.rider.last_name%></td>
+            <td><%=trip.rider_origin_loc%></td>
+            <td><%=trip.destination_loc%></td>
+          </tr>
         <% end %>
 
 
