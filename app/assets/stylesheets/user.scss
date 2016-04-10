@@ -3,6 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user_picture {
+  background-image: image-url("pexels-photo-53756.jpeg");
+  height: 100%;
+  width: 100%;
+  position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.main_picture {
   background-image: image-url("pexels-photo-25349.jpg");
   height: 100%;
   width: 100%;
@@ -10,6 +20,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+}
+
+.header {
+  color: white;
 }
 
 .main_login {
