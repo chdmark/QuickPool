@@ -1,10 +1,18 @@
-New user page
+<div class="container">
 
-<%= form_for :user, url: '/user' do |f|%>
-  First Name: <%= f.text_field :first_name %>
-  Last Name: <%= f.text_field :last_name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Phone Number: <%= f.text_field :phone_number %>
+ <%= bootstrap_form_for :user, url: '/user' do |f|%>
+    <%= f.text_field :first_name %>
+
+    <%= f.text_field :last_name %>
+
+    <%= f.text_field :email %>
+
+    <%= f.password_field :password %>
+
+    <%= f.text_field :phone_number %>
+
   <%= f.submit 'Submit' %>
 <% end %>
+
+</div>
+
