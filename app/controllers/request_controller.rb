@@ -19,7 +19,7 @@ class RequestController < ApplicationController
 
     if @request.save
       if @request.check_for_matches
-        redirect_to trip_path(Trip.last)
+        redirect_to user_path(current_user.id)
       else
         redirect_to user_path(current_user.id)
       end

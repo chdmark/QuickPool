@@ -1,18 +1,10 @@
 
-<%= link_to 'Edit', edit_user_path %>
 
 <div class='container'>
-
   <div id="requests">
-  </div>
-  <div class='well'>
-  User ID: <%= @user.id %>
-  User Name: <%=@user.first_name %>
-  </div>
-</div>
 
-<h2>Trips</h2>
-<div class='container'>
+  </div>
+  <h2><span class="glyphicon glyphicon-link" aria-hidden="true"></span>  Trips</h2>
   <div class='well'>
     <table class='table'>
       <% if @trips.count >= 1 %>
@@ -21,15 +13,19 @@
           <td>Rider</td>
           <td>Pickup Location</td>
           <td>Final Destination</td>
+          <td>Directions</td>
         </tr>
 
         <% @trips.each do |trip| %>
+
           <tr>
             <td><%=trip.driver.first_name + " " + trip.driver.last_name%></td>
             <td><%=trip.rider.first_name + " " + trip.rider.last_name%></td>
             <td><%=trip.rider_origin_loc%></td>
             <td><%=trip.destination_loc%></td>
+            <td><a href="https://www.google.com/maps/dir/<%= trip.address2google %>">Map</a></td>
           </tr>
+
         <% end %>
 
 
@@ -40,12 +36,14 @@
   </div>
 </div>
 
-<h2>Pending Requests</h2>
 <div class='container'>
+  <h2><span class="glyphicon glyphicon-time" aria-hidden="true"></span>  Pending Requests</h2>
   <div class='well'>
+
 
   <% if @requests.count >= 1 %>
     <table class='table'>
+
       <tr>
           <td>Origin</td>
           <td>Destination</td>
