@@ -24,6 +24,8 @@ class UserController < ApplicationController
   def show
     if current_user
       @user = User.find(current_user.id)
+      @trips = current_user.ridden_trips + current_user.driven_trips
+      @requests = current_user.requests.where(match: false)
     else
       redirect_to root_path
     end
