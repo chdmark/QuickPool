@@ -12,14 +12,19 @@
   <nav class="navbar navbar-default">
     <div class="container">
     <% if current_user%>
-      <a class="navbar-brand" href=<%= user_path(current_user.id) %>>QuickPool</a>
-      <a class="navbar-right btn btn-primary" href='/logout'>Logout</a>
-      <a class='navbar-right btn btn-success' href=<%= new_request_path%>>Request!</a>
+
+      <a style="font-size:3em" class="navbar-brand" href=<%= user_path(current_user.id) %>>QuickPool</a>
+      <ul class='nav nav-pills navbar-right'>
+        <li role="presentation"><a id="request-button" class='navbar-right btn btn-success navbar-btn' style='margin-right:25px;padding-left:3em;padding-right:3em' href=<%= new_request_path%>><span class="glyphicon glyphicon-search" aria-hidden="true"></span>  Request!</a></li>
+        <li role="presentation"><a class="navbar-right navbar-btn" style='margin-right:1em' href='/user/<%= current_user.id %>/edit'><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  <%=current_user.first_name + " " + current_user.last_name %></a></li>
+        <li role="presentation"><a class="navbar-right navbar-btn" href='/logout'>Logout</a></li>
+      </ul>
     <% else %>
-      <a class="navbar-brand" href=<%= root_path %>>QuickPool</a>
+      <a style="font-size:3em" class="navbar-brand" href=<%= root_path %>>QuickPool</a>
     <% end %>
     </div>
   </nav>
+
 
 
 <%= yield %>
