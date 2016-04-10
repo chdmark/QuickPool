@@ -9,8 +9,9 @@ class Request < ActiveRecord::Base
       if MultiGeocoder.geocode(self.origin_loc).distance_to(request.origin_loc) <= 1
         if MultiGeocoder.geocode(self.destination_loc).distance_to(request.destination_loc) <= 1
           p "*" * 100
-          send_text_message(self.phone_number)
-          send_text_message(request.phone_number)
+          p "*" * 100
+          send_text_message(User.find(self.user_id).phone_number)
+          send_text_message(User.find(request.user_id).phone_number)
           if self.driver
             Trip.create(rider_id: request.user_id, driver_id: self.user_id, rider_origin_loc: request.origin_loc, driver_origin_loc: self.origin_loc, destination_loc: request.destination_loc)
           else

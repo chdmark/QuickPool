@@ -19,7 +19,6 @@ class RequestController < ApplicationController
 
     if @request.save
       if @request.check_for_matches
-        send_text_message()
         redirect_to trip_path(Trip.last)
       else
         redirect_to request_path(@request.id)
