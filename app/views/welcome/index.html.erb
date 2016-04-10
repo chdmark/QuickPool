@@ -1,16 +1,17 @@
-<div class="container">
-    <h2>Log In</h2>
-    <%= bootstrap_form_tag url: "/login" do |f|%>
+<div class="picture">
+  <div class="container">
+    <div class='col-sm-6 col-sm-offset-3 well main_login'>
+      <h2>Log In</h2>
+      <%= bootstrap_form_tag url: "/login" do |f|%>
 
-      <%= f.email_field :email %>
-      <%= f.password_field :password %>
-      <%= f.submit "Submit" %>
+        <%= f.email_field :email %>
+        <%= f.password_field :password %>
+        <%= f.submit "Submit" %>
 
-    <% end %>
-    <br>
-      New User? <%= link_to "Sign Up", new_user_path %>
-    <br>
-    <br>
+      <% end %>
+      <br>
+        New User? <%= link_to "Sign Up", new_user_path %>
+
+    </div>
+  </div>
 </div>
-
-<%= image_tag("city-cars-traffic-lights.jpg", :class => "img-responsive", :alt => "Responsive image")%>

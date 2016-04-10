@@ -1,3 +1,20 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.picture {
+  background-image: image-url("city-cars-traffic-lights.jpg");
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+
+.main_login {
+  background-color: rgba(245, 245, 245, 0.4);
+  margin-top: 100px;
+  opacity: 70%;
+}
+
+
+
