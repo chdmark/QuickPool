@@ -14,3 +14,12 @@
  *= require rails_bootstrap_forms
  *= require_self
  */
+
+#request-form {
+  position: absolute;
+  border: 1px solid black;
+  margin-left: 15%;
+  width: 50em;
+  height: 50em;
+  background-color: white;
+}

@@ -14,12 +14,13 @@
     <% if current_user%>
       <a class="navbar-brand" href=<%= user_path(current_user.id) %>>QuickPool</a>
       <a class="navbar-right btn btn-primary" href='/logout'>Logout</a>
-      <a class='navbar-right btn btn-success' href=<%= new_request_path%>>Request!</a>
+      <a id="request-button" class='navbar-right btn btn-success' href=<%= new_request_path%>>Request!</a>
     <% else %>
       <a class="navbar-brand" href=<%= root_path %>>QuickPool</a>
     <% end %>
     </div>
   </nav>
+
 
 
 <%= yield %>

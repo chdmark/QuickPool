@@ -7,7 +7,7 @@ class RequestController < ApplicationController
   end
 
   def new
-
+    render "request/_new", layout: false
   end
 
   def show
