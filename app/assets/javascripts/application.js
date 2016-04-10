@@ -15,3 +15,27 @@
 //= require turbolinks
 //= bootstrap-sprockets
 //= require_tree .
+
+
+$(document).ready(function(){
+  requestButtonListener();
+
+
+});
+
+var requestButtonListener = function(){
+  $('#request-button').on('click', function(event){
+    event.preventDefault();
+    var request = $.ajax({
+      url: '/request/new',
+      method: 'GET'
+    });
+    request.done(function(response){
+      $('#requests').html(response)
+    });
+    request.fail(function(response){
+
+    });
+  })
+
+}

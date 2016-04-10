@@ -26,6 +26,9 @@ class UserController < ApplicationController
       @user = User.find(current_user.id)
       @trips = current_user.ridden_trips + current_user.driven_trips
       @requests = current_user.requests.where(match: false)
+      p "*" * 50
+      p @requests
+      p "*" * 50
     else
       redirect_to root_path
     end
