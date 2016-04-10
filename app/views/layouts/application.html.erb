@@ -11,7 +11,11 @@
 <body>
   <nav class="navbar navbar-default">
     <div class="container">
+    <% if current_user%>
+      <a class="navbar-brand" href=<%= user_path(current_user.id) %>>QuickPool</a>
+    <% else %>
       <a class="navbar-brand" href=<%= root_path %>>QuickPool</a>
+    <% end %>
     </div>
   </nav>
 
