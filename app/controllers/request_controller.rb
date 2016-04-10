@@ -49,6 +49,23 @@ class RequestController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def send_text_message(number_to_send_to)
+    # number_to_send_to = params[:number_to_send_to]
+    p "*" * 80
+    p "Sending Message"
+    twilio_sid = "ACe2ac50d1fadcd66bdce01990ae9bb474"
+    twilio_token = "851c6c93112537f05fbaaa5915ab8242"
+    twilio_phone_number = "7075631899"
+
+    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+
+    @twilio_client.account.sms.messages.create(
+      :from => "+1#{twilio_phone_number}",
+      :to => number_to_send_to,
+      :body => "You got a match! View your profile for details! -QuickPool"
+    )
+  end
+
   private
 
   def request_params
