@@ -31,6 +31,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'geokit'
 gem 'geokit-rails'
+
+gem 'twilio-ruby', '~> 4.11.1'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
