@@ -22,12 +22,16 @@
           <td>Pickup Location</td>
           <td>Final Destination</td>
         </tr>
+
         <% @trips.each do |trip| %>
+
           <td><%=trip.driver.first_name + " " + trip.driver.last_name%></td>
           <td><%=trip.rider.first_name + " " + trip.rider.last_name%></td>
           <td><%=trip.rider_origin_loc%></td>
           <td><%=trip.destination_loc%></td>
         <% end %>
+
+
       <% else %>
         <h4>No trips found</h4>
       <% end %>
@@ -39,21 +43,24 @@
 <div class='container'>
   <div class='well'>
 
-  <table class='table'>
-    <% if @requests.count >= 1 %>
+  <% if @requests.count >= 1 %>
+    <table class='table'>
       <tr>
           <td>Origin</td>
           <td>Destination</td>
           <td>Driver</td>
       </tr>
       <% @requests.each do |request| %>
-        <td><%=request.origin_loc%></td>
-        <td><%=request.destination_loc%></td>
-        <td><%=request.driver ? "Yes" : "No"%></td>
+        <tr>
+          <td><%=request.origin_loc%></td>
+          <td><%=request.destination_loc%></td>
+          <td><%=request.driver ? "Yes" : "No"%></td>
+        </tr>
       <% end %>
     <% else %>
       <h4>No requests found</h4>
     <% end %>
+    </table>
 
 
   </div>
