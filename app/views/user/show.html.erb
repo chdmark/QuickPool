@@ -1,6 +1,42 @@
 
-User ID: <%= @user.id %>
-User Name: <%=@user.first_name %>
+<div class='container'>
+  <div class='well'>
+  User ID: <%= @user.id %>
+  User Name: <%=@user.first_name %>
+  </div>
+</div>
+
+<h2>Trips</h2>
+<div class='container'>
+  <div class='well'>
+    <table class='table'>
+      <% if @trips.count >= 1 %>
+        <tr>
+          <td>Driver</td>
+          <td>Rider</td>
+          <td>Pickup Location</td>
+          <td>Final Destination</td>
+        </tr>
+        <% @trips.each do |trip| %>
+          <td><%=trip.driver.first_name + " " + trip.driver.last_name%></td>
+          <td><%=trip.rider.first_name + " " + trip.rider.last_name%></td>
+          <td><%=trip.rider_origin_loc%></td>
+          <td><%=trip.destination_loc%></td>
+        <% end %>
+      <% else %>
+        <h4>No trips found</h4>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<h2>Pending Requests</h2>
+<div class='container'>
+  <div class='well'>
+
+  </div>
+</div>
+
 
 <%= link_to 'Edit', edit_user_path %>
 <%= link_to 'Request Driver or Passenger', new_request_path %>
