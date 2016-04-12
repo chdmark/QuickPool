@@ -7,4 +7,12 @@ RSpec.describe UserController, type: :controller do
 			expect(response).to render_template(:new)
 		end
 	end
+
+	describe '#create' do 
+		let (:user_params){FactoryGirl.create(:user)}
+		it 'creates a new user' do 
+			expect{ post :create, user: user_params.attributes}.to change{User.count}.by(1)
+		end
+	end
+
 end
