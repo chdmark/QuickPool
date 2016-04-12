@@ -9,10 +9,11 @@ RSpec.describe UserController, type: :controller do
 	end
 
 	describe '#create' do 
-		let (:user_params){FactoryGirl.create(:user)}
-		it 'creates a new user' do 
-			expect{ post :create, user: user_params.attributes}.to change{User.count}.by(1)
+		let (:test_user){FactoryGirl.create(:user)}
+		it 'creates a new user and changes count by 1' do 
+			expect{ post :create, user: test_user.attributes}.to change{User.count}.by(1)
 		end
+	
 	end
 
 end
