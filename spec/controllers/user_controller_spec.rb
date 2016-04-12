@@ -78,4 +78,18 @@ RSpec.describe UserController, type: :controller do
 
 	end
 
+	describe '#destroy' do 
+		it 'deletes a user if logged in' do 
+			session[:user_id] = test_user.id
+			expect{delete :destroy, id: test_user}.to change{User.count}.by(-1)
+			expect(response).to redirect_to root_path
+		end
+		it 'will not delete a user if not logged in' do 
+			session[:user_id] = other_user.id
+			expect{delete :destroy, id: test_user}.to change{User.count}.by(0)
+			expect(response).to redirect_to root_path
+		end
+	end
+
+
 end
