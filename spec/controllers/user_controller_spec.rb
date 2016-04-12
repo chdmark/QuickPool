@@ -16,11 +16,12 @@ RSpec.describe UserController, type: :controller do
 			expect{ post :create, user: test_user.attributes}.to change{User.count}.by(1)
 		end
 
-		# it 'will not create a new user if params are missing' do 
-
+		it 'will not create a new user if params are missing' do 
+			expect{post :create, {user: {name: ''}}}.to change{User.count}.by(0)
+			expect(response).to redirect_to new_user_path
 
 			
-		# end
+		end
 	end
 
 	describe '#show' do 
