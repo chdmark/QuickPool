@@ -2,16 +2,15 @@ class Request < ActiveRecord::Base
   belongs_to :user
   include Geokit::Geocoders
   acts_as_mappable
+  validates :driver, :origin_loc, :destination_loc, presence: true
 
   def check_for_matches
     possible_matches = Request.where(match: false, driver: !self.driver)
     possible_matches.each do |request|
       if MultiGeocoder.geocode(self.origin_loc).distance_to(request.origin_loc) <= 1
         if MultiGeocoder.geocode(self.destination_loc).distance_to(request.destination_loc) <= 1
-          p "*" * 100
-          p "*" * 100
-          send_text_message(User.find(self.user_id).phone_number)
-          send_text_message(User.find(request.user_id).phone_number)
+          # send_text_message(User.find(self.user_id).phone_number)
+          # send_text_message(User.find(request.user_id).phone_number)
           if self.driver
             Trip.create(rider_id: request.user_id, driver_id: self.user_id, rider_origin_loc: request.origin_loc, driver_origin_loc: self.origin_loc, destination_loc: request.destination_loc)
           else
