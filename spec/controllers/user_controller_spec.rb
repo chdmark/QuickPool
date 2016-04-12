@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe UserController, type: :controller do
 	let (:test_user){FactoryGirl.create(:user)}
 	let (:other_user){FactoryGirl.create(:user)}
+
 	describe '#new' do 
 		it 'should load new form for user sign up' do 
 			get :new 
@@ -23,10 +24,15 @@ RSpec.describe UserController, type: :controller do
 	end
 
 	describe '#show' do 
-		it 'renders the user display page' do 
+		it 'renders the user display page if the user is logged in' do 
 			session[:user_id] = other_user.id
 			get :show, id: other_user.id
 			expect(response).to render_template(:show)
+		end
+
+		it 'redirects to root pth if the user is not the current user' do 
+			get :show, id: other_user.id
+			expect(response).to redirect_to root_path
 		end
 	end
 
@@ -45,5 +51,30 @@ RSpec.describe UserController, type: :controller do
 
 	end
 	
+	describe '#update' do 
+		
+
+		it 'will update the user and redirect to user page when given correct parameters' do 
+			
+			session[:user_id] = test_user.id
+			put :update, id: test_user, :user => {first_name: "Chris", last_name: "Mark", password_digest: test_user.password_digest, phone_number: test_user.phone_number, email: test_user.email}
+			expect(response).to redirect_to user_path(test_user)
+		end
+
+		context 'when given invalid params' do 
+			let :updates do 
+				{
+					first_name: ''
+				}
+			end
+
+			it 'should render the edit screen again with errors if the model does not save' do 
+			
+				put :update, id: test_user.id, :user => updates
+				expect(response).to redirect_to edit_user_path(test_user.id)
+			end
+		end
+
+	end
 
 end
