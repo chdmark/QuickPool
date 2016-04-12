@@ -26,9 +26,7 @@ class UserController < ApplicationController
       @user = User.find(current_user.id)
       @trips = current_user.ridden_trips + current_user.driven_trips
       @requests = current_user.requests.where(match: false)
-      p "*" * 50
-      p @requests
-      p "*" * 50
+   
     else
       redirect_to root_path
     end
@@ -38,7 +36,7 @@ class UserController < ApplicationController
     if current_user
       @user = User.find(current_user.id)
     else
-      flash[:error] = "You cannoth edit a different user's account!"
+      flash[:error] = "You cannot edit a different user's account!"
       redirect_to root_path
     end
 
@@ -57,9 +55,14 @@ class UserController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to root_path
+    if current_user
+      @user = User.find(params[:id])
+      @user.destroy
+      redirect_to root_path
+    else
+      flash[:error] = "You cannot delete a different user's account!"
+      redirect_to root_path
+    end
   end
 
   private
