@@ -2,7 +2,9 @@ class Request < ActiveRecord::Base
   belongs_to :user
   include Geokit::Geocoders
   acts_as_mappable
-  validates :driver, :origin_loc, :destination_loc, presence: true
+  validates :origin_loc, :destination_loc, presence: true
+  validates :driver, :inclusion => { :in => [true, false]}
+
 
   def check_for_matches
     possible_matches = Request.where(match: false, driver: !self.driver)
