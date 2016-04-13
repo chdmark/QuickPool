@@ -5,6 +5,8 @@ Quickpool is a simple web applications that makes it easier to create carpools. 
 
 It is built with Ruby on Rails and utilizes GeoKit and Twilio functionality. Although it is not currently deployed, you may see a live version with installation instructions provided below.
 
+*Note: QuickPool was created in less than 12 hours as part of a civic-themed hackathon
+
 ##How to Use
 Quickpool is an extremely easy to use application. After creating a simple profile, you are able to create a carpool request by inputting three fields: starting address, ending address, and whether you are a driver or rider. After submitting your request, Quickpool will search existing requests for a matches. Once you find a match, you will be notified by SMS and will be able to look at the updated request on your user profile.
 
@@ -19,6 +21,14 @@ Using GeoKit API, we are able to convert the address inputted by the user into a
 Quickpool was conceived for a civi-themed, one-day hackathon held at Dev Bootcamp San Francisco. The two topics for the hackathon were homelessness and transportation.
 
 Two members of our team commute into San Francisco from the East Bay in sections where other carpooling apps were not available yet. To address this need we decided to create a platform that provides services to areas based on user need, rather than areas deemed most profitable by companies.
+
+##Install
+QuickPool is a simple Rails applications that can be run on localhost with a simple bundle, create, and migrate
+```
+$ bundle install
+$ rake db:create
+$ rake db:migrate
+```
 
 ##Contributors
 Quickpool was created by a four members of a hackathon team:
