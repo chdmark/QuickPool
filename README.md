@@ -8,7 +8,7 @@ It is built with Ruby on Rails and utilizes GeoKit and Twilio functionality. Alt
 ##How to Use
 Quickpool is an extremely easy to use application. After creating a simple profile, you are able to create a carpool request by inputting three fields: starting address, ending address, and whether you are a driver or rider. After submitting your request, Quickpool will search existing requests for a matches. Once you find a match, you will be notified by SMS and will be able to look at the updated request on your user profile.
 
-![](/app/assets/images/request-ss.png)
+![](/app/assets/images/request-ss.png =600x)
 ![](/app/assets/images/pending-ss.png)
 
 ##How it Works
