@@ -13,4 +13,9 @@ FactoryGirl.define do
     origin_loc "261 Molimo Blvd"
     destination_loc "633 Folsom Street"
   end
+
+  factory :trip do
+    rider_origin_loc "261 Molimo Blvd"
+    destination_loc "633 Folsom Street"
+  end
 end
