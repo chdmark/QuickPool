@@ -54,6 +54,7 @@
           <td><%=request.origin_loc%></td>
           <td><%=request.destination_loc%></td>
           <td><%=request.driver ? "Yes" : "No"%></td>
+          <td><a href=<%= "/request/#{request.id}" %> data-method="delete">Remove</a></td>
         </tr>
       <% end %>
     <% else %>
