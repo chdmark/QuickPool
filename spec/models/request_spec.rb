@@ -42,7 +42,7 @@ RSpec.describe Request, type: :model do
         rider.save
         expect{rider.check_for_matches}.to change{Trip.count}.by(0)
       end
-      it 'does not create a trip when the destination location distance is too large' do 
+      it 'does not create a trip when the destination location distance is too large' do
         driver[:destination_loc] = "188 McKnight Rd."
         driver.save
         rider.save
@@ -53,6 +53,12 @@ RSpec.describe Request, type: :model do
         rider.save
         rider.check_for_matches
         expect(rider[:match]).to be true
+      end
+      it 'updates the active to false' do
+        driver.save
+        rider.save
+        rider.check_for_matches
+        expect(rider[:active]).to be false
       end
     end
   end
