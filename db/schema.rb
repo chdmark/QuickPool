@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160409175516) do
 
   create_table "requests", force: :cascade do |t|
     t.integer  "user_id",                         null: false
+    t.boolean  "active",          default: true
     t.boolean  "match",           default: false
     t.boolean  "driver",                          null: false
     t.string   "origin_loc",                      null: false

@@ -51,7 +51,8 @@ class RequestController < ApplicationController
 
   def inactive
     @request = Request.find(params[:id])
-
+    @request.active = false
+    @request.save
     redirect_to user_path(current_user.id)
   end
 

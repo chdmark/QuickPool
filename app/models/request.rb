@@ -10,6 +10,8 @@ class Request < ActiveRecord::Base
     possible_matches.each do |request|
       if MultiGeocoder.geocode(self.origin_loc).distance_to(request.origin_loc) <= 1
         if MultiGeocoder.geocode(self.destination_loc).distance_to(request.destination_loc) <= 1
+
+          ##CODE TO SEND SMS TO MATCHED USERS##
           # send_text_message(User.find(self.user_id).phone_number)
           # send_text_message(User.find(request.user_id).phone_number)
           if self.driver
@@ -18,8 +20,10 @@ class Request < ActiveRecord::Base
             Trip.create(rider_id: self.user_id, driver_id: request.user_id, rider_origin_loc: self.origin_loc, driver_origin_loc: request.origin_loc, destination_loc: self.destination_loc)
           end
           self.match = true
+          self.active = false
           self.save
           request.match = true
+          request.active = false
           request.save
           return true
         end

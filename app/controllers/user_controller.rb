@@ -10,7 +10,6 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)
@@ -25,8 +24,8 @@ class UserController < ApplicationController
     if current_user
       @user = User.find(current_user.id)
       @trips = current_user.ridden_trips + current_user.driven_trips
-      @requests = current_user.requests.where(match: false)
-   
+      @requests = current_user.requests.where(active: true)
+
     else
       redirect_to root_path
     end
