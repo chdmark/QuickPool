@@ -9,7 +9,7 @@
 destinations = ["255 Molimo Drive", "633 Folsom Street", "13 Madrone Ave", "377 South Van Ness Ave"]
 origins = ["334 Sanchez Street", "420 Mason Street", "2051 Scott Street"]
 
-User.create(email: 'admin', first_name: 'admin', last_name: 'admin', password_digest: '1234', phone_number: '12345')
+User.create(email: 'admin@email.com', first_name: 'admin', last_name: 'admin', password_digest: '123456', phone_number: '12345')
 
 5.times do
   User.create(email: Faker::Internet.email, password_digest: '1234', first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: Faker::PhoneNumber.cell_phone)

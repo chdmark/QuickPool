@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   get '/logout' => 'session#destroy'
 
+  post '/request/:id' => 'request#inactive'
+
 
 
 
