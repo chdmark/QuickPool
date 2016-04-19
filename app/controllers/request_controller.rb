@@ -49,6 +49,13 @@ class RequestController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def inactive
+    @request = Request.find(params[:id])
+
+    redirect_to user_path(current_user.id)
+  end
+
+  #METHODS
   def send_text_message(number_to_send_to)
     # number_to_send_to = params[:number_to_send_to]
     p "*" * 80

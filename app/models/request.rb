@@ -5,7 +5,6 @@ class Request < ActiveRecord::Base
   validates :origin_loc, :destination_loc, presence: true
   validates :driver, :inclusion => { :in => [true, false]}
 
-
   def check_for_matches
     possible_matches = Request.where(match: false, driver: !self.driver)
     possible_matches.each do |request|

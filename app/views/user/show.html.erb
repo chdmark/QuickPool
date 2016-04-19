@@ -48,13 +48,14 @@
           <td>Origin</td>
           <td>Destination</td>
           <td>Driver</td>
+          <td>Remove?</td>
       </tr>
       <% @requests.each do |request| %>
         <tr>
           <td><%=request.origin_loc%></td>
           <td><%=request.destination_loc%></td>
           <td><%=request.driver ? "Yes" : "No"%></td>
-          <td><a href=<%= "/request/#{request.id}" %> data-method="delete">Remove</a></td>
+          <td><a href=<%= "/request/#{request.id}" %> data-method="inactive">Remove</a></td>
         </tr>
       <% end %>
     <% else %>
