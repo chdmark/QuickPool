@@ -19,7 +19,7 @@
 
 $(document).ready(function(){
   requestButtonListener();
-
+  cancelToClose();
 
 });
 
@@ -39,3 +39,11 @@ var requestButtonListener = function(){
   })
 
 }
+
+var cancelToClose = function(){
+  $('body').on('click', '#cancel', function(event){
+    event.preventDefault();
+    console.log("Stopped");
+    $('#request-form').hide();
+  });
+};
